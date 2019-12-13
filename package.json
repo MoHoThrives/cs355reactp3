@@ -1,6 +1,9 @@
 {
   "name": "cs355react",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.16.3"
+  },
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
@@ -25,7 +28,8 @@
     "eject": "react-scripts eject",
     "server": "nodemon server.js --prefix backend",
     "client": "npm start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const cheerio = require('cheerio');
 const axios = require('axios');
+const path  = require('path');
 
 const bodyParser = require('body-parser')
 
@@ -33,7 +34,16 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedT
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
-})
+});
+
+if (process.env.NODE_ENV === 'production') {
+    //Set static folder
+    app.use(express.static('backend/build'));
+
+    app.get('*',(req,res) => {
+        res.sendFile(path.resolve(__dirname, 'backend', 'build', 'index.html'));
+    });
+};
 
 /** require the files */
 const searchRouter = require('./routes/search');
