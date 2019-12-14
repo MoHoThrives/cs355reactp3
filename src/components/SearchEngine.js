@@ -24,12 +24,12 @@ class SearchEngine extends Component {
             term
         })
         /** send the term to back end */
-        axios.post('http://localhost:5000/custom', {term})
+        axios.post('https://www.google.com', {term})
             .then((res)=>{
                 console.log(res.data);
                 // console.log('Pass term to back end!');
             })
-        axios.get('http://localhost:5000/admin')
+        axios.get('https://www.google.com')
             .then((res)=>{
                 console.log(res.data);
                 // console.log('Pass term to back end!');
