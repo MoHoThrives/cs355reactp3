@@ -10,7 +10,7 @@ const path  = require('path');
 const bodyParser = require('body-parser')
 
 // process is a global object.
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 //cors: cross origin resource sharing, allowed ajax request access resource from remote host.
 const cors = require('cors');
 //dotenv: load environment variables form a .env file
